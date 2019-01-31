@@ -46,3 +46,11 @@ let navItems = nav.querySelectorAll('a');
 for (let i = 0; i < navItems.length; i++) {
   navItems[i].textContent = siteContent.nav[`nav-item-${i + 1}`];
 }
+
+let cta = document.querySelector('.cta');
+let h1 = cta.querySelector('h1');
+let ctaButton = cta.querySelector('button');
+let ctaImg = cta.querySelector('#cta-img');
+h1.textContent = siteContent.cta.h1;
+ctaButton.textContent = siteContent.cta.button;
+ctaImg.setAttribute('src', siteContent.cta['img-src']);
