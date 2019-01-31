@@ -54,3 +54,23 @@ let ctaImg = cta.querySelector('#cta-img');
 h1.textContent = siteContent.cta.h1;
 ctaButton.textContent = siteContent.cta.button;
 ctaImg.setAttribute('src', siteContent.cta['img-src']);
+
+let mainContent = document.querySelector('.main-content');
+let topContent = mainContent.querySelector('.top-content');
+let topContentSecs = topContent.querySelectorAll('.text-content');
+let middleImg = mainContent.querySelector('#middle-img');
+let bottomContent = mainContent.querySelector('.bottom-content');
+let bottomContentSecs = bottomContent.querySelectorAll('.text-content');
+let middleSections = {
+  'features': topContentSecs[0],
+  'about': topContentSecs[1],
+  'services': bottomContentSecs[0],
+  'product': bottomContentSecs[1],
+  'vision': bottomContentSecs[2]
+};
+for (let key in middleSections) {
+  middleSections[key].querySelector('h4').textContent = siteContent['main-content'][`${key}-h4`];
+  console.log(middleSections[key].toString());
+  middleSections[key].querySelector('p').textContent = siteContent['main-content'][`${key}-content`];
+}
+middleImg.setAttribute('src', siteContent['main-content']['middle-img-src']);
