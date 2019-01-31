@@ -40,3 +40,66 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+let nav = document.querySelector('nav');
+let navItems = nav.querySelectorAll('a');
+for (let i = 0; i < navItems.length; i++) {
+  navItems[i].textContent = siteContent.nav[`nav-item-${i + 1}`];
+}
+
+let cta = document.querySelector('.cta');
+let h1 = cta.querySelector('h1');
+let ctaButton = cta.querySelector('button');
+let ctaImg = cta.querySelector('#cta-img');
+h1.textContent = siteContent.cta.h1;
+ctaButton.textContent = siteContent.cta.button;
+ctaImg.setAttribute('src', siteContent.cta['img-src']);
+
+let mainContent = document.querySelector('.main-content');
+let topContent = mainContent.querySelector('.top-content');
+let topContentSecs = topContent.querySelectorAll('.text-content');
+let middleImg = mainContent.querySelector('#middle-img');
+let bottomContent = mainContent.querySelector('.bottom-content');
+let bottomContentSecs = bottomContent.querySelectorAll('.text-content');
+let middleSections = {
+  'features': topContentSecs[0],
+  'about': topContentSecs[1],
+  'services': bottomContentSecs[0],
+  'product': bottomContentSecs[1],
+  'vision': bottomContentSecs[2]
+};
+for (let key in middleSections) {
+  middleSections[key].querySelector('h4').textContent = siteContent['main-content'][`${key}-h4`];
+  middleSections[key].querySelector('p').textContent = siteContent['main-content'][`${key}-content`];
+}
+middleImg.setAttribute('src', siteContent['main-content']['middle-img-src']);
+
+let contact = document.querySelector('.contact');
+let contactHeader = contact.querySelector('h4');
+let contactContent = contact.querySelectorAll('p');
+contactHeader.textContent = siteContent.contact['contact-h4'];
+let addressLines = {
+  'address': contactContent[0],
+  'phone': contactContent[1],
+  'email': contactContent[2]
+};
+for (let key in addressLines) {
+  addressLines[key].textContent = siteContent.contact[key];
+}
+
+let footer = document.querySelector('footer');
+let copyright = footer.querySelector('p');
+copyright.textContent = siteContent.footer['copyright'];
+
+
+for (let i = 0; i < navItems.length; i++) {
+  navItems[i].style.color = 'green';
+}
+
+let navHome = document.createElement('a');
+navHome.textContent = 'Home';
+nav.prepend(navHome);
+
+let navPineapple = document.createElement('a');
+navPineapple.textContent = 'Pineapple';
+nav.appendChild(navPineapple);
