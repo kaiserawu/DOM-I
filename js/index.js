@@ -90,3 +90,16 @@ for (let key in addressLines) {
 let footer = document.querySelector('footer');
 let copyright = footer.querySelector('p');
 copyright.textContent = siteContent.footer['copyright'];
+
+
+for (let i = 0; i < navItems.length; i++) {
+  navItems[i].style.color = 'green';
+}
+
+let navHome = document.createElement('a');
+navHome.textContent = 'Home';
+nav.prepend(navHome);
+
+let navPineapple = document.createElement('a');
+navPineapple.textContent = 'Pineapple';
+nav.appendChild(navPineapple);
