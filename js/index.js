@@ -70,7 +70,23 @@ let middleSections = {
 };
 for (let key in middleSections) {
   middleSections[key].querySelector('h4').textContent = siteContent['main-content'][`${key}-h4`];
-  console.log(middleSections[key].toString());
   middleSections[key].querySelector('p').textContent = siteContent['main-content'][`${key}-content`];
 }
 middleImg.setAttribute('src', siteContent['main-content']['middle-img-src']);
+
+let contact = document.querySelector('.contact');
+let contactHeader = contact.querySelector('h4');
+let contactContent = contact.querySelectorAll('p');
+contactHeader.textContent = siteContent.contact['contact-h4'];
+let addressLines = {
+  'address': contactContent[0],
+  'phone': contactContent[1],
+  'email': contactContent[2]
+};
+for (let key in addressLines) {
+  addressLines[key].textContent = siteContent.contact[key];
+}
+
+let footer = document.querySelector('footer');
+let copyright = footer.querySelector('p');
+copyright.textContent = siteContent.footer['copyright'];
